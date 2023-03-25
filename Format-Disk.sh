@@ -31,3 +31,4 @@ do
 done
 
 disk=$($(dirname "$0")/Get-Disk.sh $bay)
+echo $disk
