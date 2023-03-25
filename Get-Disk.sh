@@ -29,7 +29,7 @@ for i in $allbays; do
   fi
 done
 
-if [ -z "$disk" ];then
+if ! [ -z "$disk" ];then
   echo $disk
 else
   echo "No disk found on bay $1 of the enclosure"
