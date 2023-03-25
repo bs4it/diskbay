@@ -6,7 +6,7 @@ if [ -z "$1" ];then
   echo ""
   echo "Usage: Get-Bay.sh /dev/sdX"
   echo ""
-  echo "The returned number corresponds to the baywhere disk sdX dis placed"
+  echo "The returned number corresponds to the bay where disk sdX dis placed"
   exit 1
 fi
 
