@@ -14,5 +14,5 @@ if test -f "$file"; then
   bay=$(printf "%02d" $bay)
   echo $bay
 else
-  echo "$1 not found"
+  echo "$1 not found in any bay of the enclosure"
 fi
