@@ -16,7 +16,7 @@ allbays=$(find $device_base/port* -type f -name bay_identifier)
 disk=""
 for i in $allbays; do
   curbay=$(cat $i)
-  if [ $curbay -eq $bay ]
+  if [ $curbay -eq $bay ];then
     disk=$(echo $i | rev | cut -d "/" -f 2 | cut -d "-" -f 1 | rev)":0"
     disk=$(lsscsi | grep $disk | rev | awk '{print $1}' | rev)
   fi
