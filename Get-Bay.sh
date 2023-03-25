@@ -3,8 +3,10 @@ ctrl_index="0"
 device_base="/sys/devices/pci0000:00/0000:00:02.2/0000:02:00.0/host0/port-0:0/expander-0:0/"
 ctl=$(lsblk -n -o HCTL $1 | cut -d ":" -f 1-3)
 if [ -z "$1" ];then
+  echo ""
   echo "Usage: Get-Bay.sh /dev/sdX"
-  echo "the returned number corresponds to the baywhere disk sdX dis placed"
+  echo ""
+  echo "The returned number corresponds to the baywhere disk sdX dis placed"
   exit 1
 fi
 
