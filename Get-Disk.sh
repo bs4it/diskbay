@@ -20,11 +20,7 @@ for i in $allbays; do
   echo $bay
   echo "-------"
   if [ $curbay -eq $bay ];then
-    echo "IGUAL"
-    echo $i
     disk=$(echo $i | rev | cut -d "/" -f 2 | cut -d "-" -f 1 | rev)":0"
-    echo $disk
-    read
     disk=$(lsscsi | grep $disk | rev | awk '{print $1}' | rev)
   fi
 done
