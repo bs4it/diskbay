@@ -3,14 +3,13 @@
 bay=$1
 ctrl_index="0"
 device_base="/sys/devices/pci0000:00/0000:00:02.2/0000:02:00.0/host0/port-0:0/expander-0:0/"
-bay=$((10#$bay))
 if [ -z "$1" ];then
   echo "Usage: Get-Disk.sh XX"
   echo "where XX corresponds to the bay you want to query."
   echo "The returned value is the corresponding device in the format /dev/sdX"
   exit 1
 fi
-
+bay=$((10#$bay))
 allbays=$(find $device_base/port* -type f -name bay_identifier)
 disk=""
 for i in $allbays; do
