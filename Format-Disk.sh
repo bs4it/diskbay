@@ -34,6 +34,15 @@ done
 disk=$($(dirname "$0")/Get-Disk.sh $bay)
 echo "Unmounting $disk ..."
 umount --force $disk
+sleep 1
 echo "Formating $disk with label disk$bay..."
-
+mkfs.xfs -f -L disk$bay $disk
+sleep 1
+echo "Mounting all filesystems listed on /etc/fstab..."
+mount -a
+sleep 1
+echo "Setting ownership to minio-user..."
+chown minio-user:minio-user -R /disk$bay
+sleep 1
+echo "DONE!"
 
