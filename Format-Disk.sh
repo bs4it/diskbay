@@ -8,7 +8,8 @@ if [ -z "$1" ];then
   echo "Where XX corresponds to the bay holding the disk you want to format."
   exit 1
 fi
-bay=$((10#$bay))
+#bay=$((10#$bay))
+bay=$(printf "%02d" $bay)
 
 echo ""
 echo "If you proceed the disk on the bay $bay will be unmounted and formated. All data on this disk will be PERMANENTELY LOST."
@@ -29,6 +30,10 @@ do
 			;;
   	esac
 done
-
+# Getting device for bay
 disk=$($(dirname "$0")/Get-Disk.sh $bay)
-echo $disk
+echo "Unmounting $disk ..."
+umount --force $disk
+echo "Formating $disk with label disk$bay..."
+
+
